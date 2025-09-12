@@ -9,7 +9,7 @@ const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
-  }
+  },
 });
 
 export default auth;
