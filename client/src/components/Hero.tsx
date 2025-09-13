@@ -30,21 +30,21 @@ const Hero = () => (
         >
           Open a random blog
         </a>
-        <div className="right-1/7 absolute bottom-0 flex font-light font-outfit items-end opacity-80">
-          <div className="px-2 py-1 flex gap-1">
-            <p>more about me on</p>
+        <div className="right-1/7 font-outfit absolute bottom-0 flex items-end font-light">
+          <div className="flex gap-1 px-2 py-1">
+            <p className="opacity-80">more about me on</p>
             <a
               href="https://vinct.me"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium hover:underline focus:outline-none"
+              className="font-medium underline opacity-80 hover:opacity-100 focus:outline-none"
             >
               vinct.me
             </a>
           </div>
-          <Star className="absolute size-6 bottom-9 right-3" />
-          <Star className="absolute size-4 bottom-6 -right-2" />
-          <Star className="absolute size-3 bottom-2 -right-6" />
+          <Star className="absolute bottom-9 right-3 size-6 opacity-80" />
+          <Star className="absolute -right-2 bottom-6 size-4 opacity-80" />
+          <Star className="absolute -right-6 bottom-2 size-3 opacity-80" />
         </div>
       </div>
     </div>
