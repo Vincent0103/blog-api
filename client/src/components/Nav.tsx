@@ -1,14 +1,14 @@
 const Nav = () => (
-  <header className="sticky top-0 z-30 border-b border-gray-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+  <header className="sticky top-0 z-30 border-b border-gray-200 bg-zinc-200/30 backdrop-blur-lg">
     <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
       <a
         href="#home"
-        className="text-lg font-semibold tracking-tight text-gray-900"
+        className="font-outfit text-lg font-semibold tracking-tight text-orange-900"
       >
-        Blog API
+        vinct's journal
       </a>
       <nav aria-label="Primary">
-        <ul className="flex items-center gap-6 text-sm text-gray-700">
+        <ul className="flex items-center gap-6 text-sm text-zinc-700">
           <li>
             <a href="#features" className="hover:text-gray-900">
               Features
