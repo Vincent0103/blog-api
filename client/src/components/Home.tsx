@@ -1,28 +1,22 @@
-import FeatureCard from "./FeatureCard";
+import BlogCard from "./BlogCard";
 import Hero from "./Hero";
+import ComputerImgUrl from "../assets/blog-cards/computer.jpg";
 
 const Home = () => (
   <main>
     <Hero />
     <section id="features" className="bg-white">
       <div className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-semibold text-gray-900">Features</h2>
+        <h2 className="text-3xl font-semibold text-gray-900">
+          My latest blogs
+        </h2>
         <p className="mt-2 max-w-2xl text-gray-600">
-          Fast, typed, and predictable endpoints for posts, users, and comments.
+          The greatest manifestion of the All.
         </p>
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <FeatureCard
-            title="RESTful Endpoints"
-            description="Standard CRUD routes with clear request/response shapes."
-          />
-          <FeatureCard
-            title="Auth Ready"
-            description="Token-based auth for protected actions and user scopes."
-          />
-          <FeatureCard
-            title="Typed Responses"
-            description="Consistent schemas for safer client integrations."
-          />
+          <BlogCard id={1} img={{ src: ComputerImgUrl, alt: "Computer" }} />
+          <BlogCard id={2} img={{ src: ComputerImgUrl, alt: "Computer" }} />
+          <BlogCard id={3} img={{ src: ComputerImgUrl, alt: "Computer" }} />
         </div>
       </div>
     </section>
