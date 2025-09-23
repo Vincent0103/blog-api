@@ -23,16 +23,30 @@ model User {
 }
 
 model Post {
-  id Int @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  title      String
+  content    String
+  timeToRead Float // in seconds
 
   author   User @relation(fields: [authorId], references: [id])
   authorId Int
 
   comments Comment[]
+  tags     Tag[]
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String
+  posts Post[]
 }
 
 model Comment {
-  id Int @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  title     String
+  content   String
 
   author   User @relation(fields: [authorId], references: [id])
   authorId Int

@@ -1,6 +1,13 @@
 import BlogCard from "./BlogCard";
 import Hero from "./Hero";
-import ComputerImgUrl from "../assets/blog-cards/computer.jpg";
+import { v4 as uuidv4 } from "uuid";
+import Tag from "./Tag";
+
+const tags = [
+  { id: uuidv4(), name: "Creativity" },
+  { id: uuidv4(), name: "Habits" },
+  { id: uuidv4(), name: "Productivity" },
+];
 
 const Home = () => (
   <main>
@@ -10,13 +17,22 @@ const Home = () => (
         <h2 className="text-3xl font-semibold text-gray-900">
           My latest blogs
         </h2>
-        <p className="mt-2 max-w-2xl text-gray-600">
+        <p className="mt-2 max-w-2xl text-xl text-gray-600">
           The greatest manifestion of the All.
         </p>
+        <nav className="mt-5 flex gap-2">
+          <h3 className="text-normal font-medium text-gray-600">Filters: </h3>
+          <div className="flex gap-2">
+            {tags.map((tag) => (
+              <Tag {...tag} isFilter />
+            ))}
+          </div>
+        </nav>
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <BlogCard id={1} img={{ src: ComputerImgUrl, alt: "Computer" }} />
-          <BlogCard id={2} img={{ src: ComputerImgUrl, alt: "Computer" }} />
-          <BlogCard id={3} img={{ src: ComputerImgUrl, alt: "Computer" }} />
+          {/* FIXME: Make sure to change the id numbers to safely generated random strings */}
+          <BlogCard id={1} />
+          <BlogCard id={2} />
+          <BlogCard id={3} />
         </div>
       </div>
     </section>
