@@ -1,38 +1,37 @@
-import { v4 as uuidv4 } from "uuid";
+import { formatDistance } from "date-fns";
 import Tag from "./Tag";
+import type { BlogCardType } from "../types/blogCard";
 
-interface BlogCardProps {
-  id: number;
-}
-
-const tags = [
-  { id: uuidv4(), name: "Creativity" },
-  { id: uuidv4(), name: "Habits" },
-  { id: uuidv4(), name: "Productivity" },
-];
-
-const BlogCard = ({ id }: BlogCardProps) => (
+const BlogCard = ({
+  id,
+  createdAt,
+  title,
+  content,
+  timeToRead,
+  tags,
+}: BlogCardType) => (
   <section
     id={`blog-card-${id}`}
-    className="flex w-full flex-col gap-2 overflow-hidden bg-gray-50 shadow-sm"
+    className="flex h-min w-full flex-col gap-2 overflow-hidden bg-gray-50 shadow-sm"
   >
     <div className="border-1 flex flex-col gap-3 border-gray-300 bg-gray-50 p-4">
-      <h1 className="text-2xl font-semibold">Building a creative habit</h1>
+      <h1 className="text-2xl font-semibold">{title}</h1>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <Tag {...tag} />
+          <Tag key={tag.id} {...tag} />
         ))}
       </div>
-      <p className="text-xs text-gray-600">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit delectus
-        explicabo consequuntur, inventore unde voluptatum eos libero quaerat.
-        Voluptas iste eligendi eos voluptatibus labore totam velit inventore
-        voluptatum ullam odit.
-      </p>
+      <p className="text-xs text-gray-600">{content}</p>
       <div className="flex items-center justify-between text-sm text-gray-500">
-        <small>Aug 3, 2025</small>
+        <small>
+          {formatDistance(createdAt, Date.now(), { addSuffix: true })}
+        </small>
         <span>&middot;</span>
-        <small>6 min read</small>
+        <small>
+          {timeToRead < 60
+            ? `${timeToRead}secs read`
+            : `${timeToRead / 60}min read`}
+        </small>
       </div>
     </div>
   </section>
