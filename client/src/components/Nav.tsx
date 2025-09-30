@@ -20,8 +20,8 @@ const Nav = () => (
             </a>
           </li>
           <li>
-            <a href="#contact" className="hover:text-gray-900">
-              Contact
+            <a href="/login" className="hover:text-gray-900">
+              Login
             </a>
           </li>
         </ul>
